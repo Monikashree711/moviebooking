@@ -1,0 +1,16 @@
+<div *ngIf="movie">
+  <h2>{{ movie.title }}</h2>
+  <p>⭐ Rating: {{ movie.rating }}</p>
+
+  <button (click)="toggleDetails()">
+    {{ showDetails ? 'Hide Details' : 'Show Details' }}
+  </button>
+
+  <div *ngIf="showDetails">
+    <p><strong>Genre:</strong> {{ movie.genre }}</p>
+    <p><strong>Duration:</strong> {{ movie.duration }} mins</p>
+    <p><strong>Showtime:</strong> {{ movie.showtime | date: 'medium' }}</p>
+    <p><strong>Language:</strong> {{ movie.language }}</p>
+    <img *ngIf="movie.image" [src]="'/assets/' + movie.image" alt="{{ movie.title }}" style="max-width: 300px;">
+  </div>
+</div>
