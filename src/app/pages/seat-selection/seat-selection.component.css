@@ -1,0 +1,92 @@
+/* Container */
+.seats-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+  }
+  
+  /* Movie title */
+  h2 {
+    color: #2c3e50;
+    margin-bottom: 24px;
+  }
+  
+  /* Seat grid */
+  .seats {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+  
+  /* Individual seat button */
+  .seats button {
+    padding: 12px 0;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  /* Selected seat */
+  .seats button.selected {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  /* Booked seat */
+  .seats button.booked {
+    background-color: #9e9e9e;
+    color: #fff;
+    cursor: not-allowed;
+  }
+  
+  /* Button hover */
+  .seats button:not(.booked):hover {
+    transform: scale(1.05);
+  }
+  
+  /* Actions section */
+  .actions {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  /* Confirm Booking Button */
+  .confirm-button,
+  .actions button {
+    background-color: #e50914;
+    color: black;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  /* Button hover effect */
+  .confirm-button:hover,
+  .actions button:hover {
+    background-color: #b00610;
+  }
+  
+  /* Total amount text */
+  .actions p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0;
+  }
+  

@@ -1,0 +1,55 @@
+.confirmation-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 2rem;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border-radius: 16px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2e2e2e;
+  }
+  
+  .movie-details {
+    margin-bottom: 1.5rem;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 12px;
+    line-height: 1.6;
+  }
+  
+  .payment-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .payment-form select {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 1.5rem;
+  }
+  
+  .confirm-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #e50914;
+    color:bl;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  .confirm-btn:hover {
+    background-color: #b00610;
+    cursor: pointer;
+  }
+  

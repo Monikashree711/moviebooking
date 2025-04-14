@@ -1,1 +1,25 @@
-<p>seat-selection works!</p>
+<div class="seats-container">
+    <h2>🎬 {{ movie.title }}</h2>
+  
+    <div class="seats">
+      <button
+        *ngFor="let seat of seats"
+        [class.selected]="selectedSeats.includes(seat)"
+        [class.booked]="bookedSeats.includes(seat)"
+        (click)="toggleSeat(seat)"
+        [disabled]="bookedSeats.includes(seat)">
+        {{ seat }}
+      </button>
+    </div>
+  
+    <div class="actions">
+      <p>Total: ₹{{ totalAmount }}</p>
+      <button
+        class="confirm-button"
+        (click)="continueToConfirmation()"
+        [disabled]="selectedSeats.length === 0">
+        Continue to Payment
+      </button>
+    </div>
+  </div>
+  

@@ -1,29 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule, DatePipe } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { MovieService } from '../../services/movie.service';
+import { Movie } from '../../models/movie.model';
 
 @Component({
   selector: 'app-movie-details',
-  imports: [CommonModule],
   standalone: true,
+  imports: [CommonModule, RouterModule],
+  providers: [DatePipe],
   templateUrl: './movie-details.component.html',
   styleUrls: ['./movie-details.component.css']
 })
 export class MovieDetailsComponent implements OnInit {
-  movie: any;
-  showDetails: boolean = false;
+  movie!: Movie;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  constructor(
+    private route: ActivatedRoute,
+    private movieService: MovieService
+  ) {}
 
-  ngOnInit() {
-    const movieId = this.route.snapshot.paramMap.get('id');
-    this.http.get(`http://localhost:3000/api/movies/${movieId}`).subscribe((data: any) => {
+  ngOnInit(): void {
+    const movieId = Number(this.route.snapshot.paramMap.get('id'));
+    this.movieService.getMovieById(movieId).subscribe(data => {
       this.movie = data;
     });
   }
-
-  toggleDetails() {
-    this.showDetails = !this.showDetails;
-  }
+  
 }

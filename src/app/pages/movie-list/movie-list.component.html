@@ -1,10 +1,17 @@
 <div class="movie-grid">
-  <mat-card *ngFor="let movie of movies" class="movie-card">
-    <img mat-card-image [src]="'assets/images/' + movie.image" alt="{{ movie.title }}">
-    <mat-card-title>{{ movie.title }}</mat-card-title>
-    <mat-card-subtitle>⭐ {{ movie.rating }} | {{ movie.genre }}</mat-card-subtitle>
-    <mat-card-actions>
-      <a mat-button [routerLink]="['/movies', movie.id]">View Details</a>
-    </mat-card-actions>
-  </mat-card>
+  <div *ngFor="let movie of movies" class="movie-card">
+    <img
+    [src]="'http://localhost:5000/images/' + movie.image"
+    alt="{{ movie.title }}"
+    class="movie-poster"
+  />
+
+    <div class="movie-info">
+      <h3>{{ movie.title }}</h3>
+      <p class="rating">⭐ {{ movie.rating }}</p>
+      <p>{{ movie.genre }} | {{ movie.language }}</p>
+      <p>{{ movie.duration }} min</p>
+      <a [routerLink]="['/movie', movie.id]" class="btn">View Details</a>
+    </div>
+  </div>
 </div>

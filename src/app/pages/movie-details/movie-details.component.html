@@ -1,16 +1,19 @@
-<div *ngIf="movie">
-  <h2>{{ movie.title }}</h2>
-  <p>⭐ Rating: {{ movie.rating }}</p>
+<div class="details-container" *ngIf="movie">
+  <img [src]="'http://localhost:5000/images/' + movie.image" alt="{{ movie.title }}" />
 
-  <button (click)="toggleDetails()">
-    {{ showDetails ? 'Hide Details' : 'Show Details' }}
-  </button>
 
-  <div *ngIf="showDetails">
+  <div class="details-content">
+    <h2>{{ movie.title }}</h2>
+    <p class="rating">⭐ {{ movie.rating }}</p>
     <p><strong>Genre:</strong> {{ movie.genre }}</p>
-    <p><strong>Duration:</strong> {{ movie.duration }} mins</p>
-    <p><strong>Showtime:</strong> {{ movie.showtime | date: 'medium' }}</p>
+    <p><strong>Duration:</strong> {{ movie.duration }} minutes</p>
     <p><strong>Language:</strong> {{ movie.language }}</p>
-    <img *ngIf="movie.image" [src]="'/assets/' + movie.image" alt="{{ movie.title }}" style="max-width: 300px;">
+    <p><strong>Showtime:</strong> {{ movie.showtime | date:'medium' }}</p>
+    <a routerLink="/" class="btn">← Back to Movies</a>
+    <a [routerLink]="['/movies', movie.id, 'seats']" class="btn primary">
+      🎟️ Book Now
+    </a>
+    
+
   </div>
 </div>

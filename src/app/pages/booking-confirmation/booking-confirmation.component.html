@@ -1,1 +1,22 @@
-<p>booking-confirmation works!</p>
+<div class="confirmation-container">
+    <h2>🎟️ Confirm Your Booking</h2>
+  
+    <div class="movie-details">
+      <h3>{{ movie.title }}</h3>
+      <p><strong>Selected Seats:</strong> {{ selectedSeats.join(', ') }}</p>
+      <p><strong>Total Amount:</strong> ₹{{ totalAmount }}</p>
+    </div>
+  
+    <form class="payment-form">
+      <label for="paymentMethod">Choose Payment Method:</label>
+      <select id="paymentMethod" [(ngModel)]="paymentMethod" name="paymentMethod">
+        <option value="Credit Card">Credit Card</option>
+        <option value="Debit Card">Debit Card</option>
+        <option value="UPI">UPI</option>
+        <option value="Cash on Delivery">Cash on Delivery</option>
+      </select>
+  
+      <button class="confirm-btn" type="button" (click)="confirmBooking()">✅ Confirm Booking</button>
+    </form>
+  </div>
+  
