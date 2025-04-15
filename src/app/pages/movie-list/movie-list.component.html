@@ -1,10 +1,7 @@
 <div class="movie-grid">
   <div *ngFor="let movie of movies" class="movie-card">
-    <img
-    [src]="'http://localhost:5000/images/' + movie.image"
-    alt="{{ movie.title }}"
-    class="movie-poster"
-  />
+    <img [src]="movie.image" alt="{{ movie.title }}" class="movie-poster" />
+
 
     <div class="movie-info">
       <h3>{{ movie.title }}</h3>

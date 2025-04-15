@@ -4,6 +4,7 @@ import { MovieDetailsComponent } from './pages/movie-details/movie-details.compo
 
 
 
+
 export const appRoutes: Routes = [
   { path: '', component: MovieListComponent },
   { path: 'movie/:id', component: MovieDetailsComponent },
@@ -17,6 +18,14 @@ export const appRoutes: Routes = [
     loadComponent: () =>
       import('./pages/booking-confirmation/booking-confirmation.component')
         .then(m => m.BookingConfirmationComponent)
+  },
+  {
+    path: 'final-booking',
+    loadComponent: () =>
+      import('./pages/final-booking/final-booking.component')
+        .then(m => m.FinalBookingComponent)
   }
+  
+  
 ];
 

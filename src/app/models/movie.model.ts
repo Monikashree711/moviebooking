@@ -6,6 +6,7 @@ export interface Movie {
     rating: string;
     showtime: string;
     language: string;
+    theatre:string;
     image: string;
   }
   

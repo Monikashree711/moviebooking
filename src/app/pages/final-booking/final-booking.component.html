@@ -1,0 +1,14 @@
+<div *ngIf="bookings.length === 0">
+    No bookings found.
+  </div>
+  
+  <div *ngIf="bookings.length > 0">
+    <div *ngFor="let booking of bookings" class="booking-card">
+      <h3>{{ booking.title }}</h3>
+      <p><strong>User:</strong> {{ booking.user_name }}</p>
+      <p><strong>Seats:</strong> {{ booking.selected_seats }}</p>
+      <p><strong>Payment:</strong> {{ booking.payment_method }}</p>
+      <p><strong>Date:</strong> {{ booking.created_at | date: 'medium' }}</p>
+    </div>
+  </div>
+  

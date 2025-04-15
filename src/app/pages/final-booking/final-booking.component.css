@@ -1,0 +1,63 @@
+/* Container styling */
+:host {
+    display: block;
+    padding: 2rem;
+    background-color: #f9f9fb;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* When no bookings are found */
+  div:has(> .booking-card):not(:has(.booking-card)) {
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  /* Booking card style */
+  .booking-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s ease;
+    border-left: 6px solid #e71a0f;
+  }
+  
+  .booking-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  /* Title */
+  .booking-card h3 {
+    margin-top: 0;
+    color: #e71a0f;
+    font-size: 1.4rem;
+  }
+  
+  /* Details */
+  .booking-card p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .booking-card p strong {
+    color: #444;
+  }
+  
+  /* Responsive (mobile friendly) */
+  @media (max-width: 600px) {
+    .booking-card {
+      padding: 1rem;
+    }
+  
+    .booking-card h3 {
+      font-size: 1.2rem;
+    }
+  
+    .booking-card p {
+      font-size: 0.95rem;
+    }
+  }
+  

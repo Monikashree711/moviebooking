@@ -18,4 +18,7 @@ export class MovieService {
   getMovieById(id: number): Observable<Movie> {
     return this.http.get<Movie>(`${this.apiUrl}/${id}`);
   }
+  getAllBookings() {
+    return this.http.get<any[]>('http://localhost:5000/api/bookings');
+  }
 }

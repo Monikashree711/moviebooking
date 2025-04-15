@@ -1,27 +1,30 @@
 .movie-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
   padding: 2rem;
+  background-color: #111;
+  color: #fff;
 }
 
 .movie-card {
-  background-color: #1e1e1e;
+  background-color: #1c1c1c;
   border-radius: 12px;
   overflow: hidden;
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .movie-card:hover {
   transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
 }
 
-.movie-card img {
+.movie-poster {
   width: 100%;
-  height: 340px;
+  height: 320px;
   object-fit: cover;
+  display: block;
 }
 
 .movie-info {
@@ -29,21 +32,33 @@
 }
 
 .movie-info h3 {
-  margin: 0 0 0.3rem;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
 }
 
 .rating {
-  color: #ffcc00;
-  font-weight: bold;
+  color: #ffd700;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.movie-info p {
+  margin: 0.3rem 0;
+  color: #ccc;
 }
 
 .btn {
   display: inline-block;
-  margin-top: 1rem;
-  background: #e50914;
-  color: #fff;
-  padding: 8px 16px;
+  margin-top: 0.5rem;
+  padding: 0.4rem 1rem;
+  background-color: #e50914;
+  color: white;
   text-decoration: none;
   border-radius: 6px;
   font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #b20710;
 }

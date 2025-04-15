@@ -16,6 +16,13 @@
         <option value="Cash on Delivery">Cash on Delivery</option>
       </select>
   
+      <a [routerLink]="['/movies', movie.id, 'seats']" class="btn">
+        ← Back to Seat Selection
+      </a>
+      
+
+    
+  
       <button class="confirm-btn" type="button" (click)="confirmBooking()">✅ Confirm Booking</button>
     </form>
   </div>

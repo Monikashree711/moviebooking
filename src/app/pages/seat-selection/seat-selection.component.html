@@ -1,25 +1,43 @@
 <div class="seats-container">
-    <h2>🎬 {{ movie.title }}</h2>
+  <h2>🎬 {{ movie.title }}</h2>
+
+  <div class="legend">
+    <div><span class="seat available"></span> Available</div>
+    <div><span class="seat selected"></span> Selected</div>
+    <div><span class="seat booked"></span> Booked</div>
+  </div>
+
+  <div class="seats">
+    <ng-container *ngFor="let row of seatRows">
+      <div class="seat-row">
+        <span class="row-label">{{ row.label }}</span>
+        <ng-container *ngFor="let seat of row.seats">
+          <button
+            class="seat"
+            [class.selected]="selectedSeats.includes(seat)"
+            [class.booked]="bookedSeats.includes(seat)"
+            (click)="toggleSeat(seat)"
+            [disabled]="bookedSeats.includes(seat)">
+            {{ seat }}
+          </button>
+      </ng-container>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="actions">
+    <a [routerLink]="['/movie', movie.id]" class="back-button">
+      Back to Movie Details
+    </a>
   
-    <div class="seats">
-      <button
-        *ngFor="let seat of seats"
-        [class.selected]="selectedSeats.includes(seat)"
-        [class.booked]="bookedSeats.includes(seat)"
-        (click)="toggleSeat(seat)"
-        [disabled]="bookedSeats.includes(seat)">
-        {{ seat }}
-      </button>
-    </div>
+    <p>Total: ₹{{ totalAmount }}</p>
   
-    <div class="actions">
-      <p>Total: ₹{{ totalAmount }}</p>
-      <button
-        class="confirm-button"
-        (click)="continueToConfirmation()"
-        [disabled]="selectedSeats.length === 0">
-        Continue to Payment
-      </button>
-    </div>
+    <button
+      class="confirm-button"
+      (click)="continueToConfirmation()"
+      [disabled]="selectedSeats.length === 0">
+      Continue to Payment
+    </button>
   </div>
   
+</div>

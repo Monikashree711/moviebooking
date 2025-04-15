@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { MovieService } from '../../services/movie.service';
 import { Movie } from '../../models/movie.model';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-seat-selection',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './seat-selection.component.html',
   styleUrls: ['./seat-selection.component.css']
 })
@@ -17,10 +18,11 @@ export class SeatSelectionComponent implements OnInit {
   seats: string[] = [];
   selectedSeats: string[] = [];
   bookedSeats: string[] = [];
-  isAdmin: boolean = false;
+  seatRows: { label: string, seats: string[] }[] = [];
 
   totalAmount: number = 0;
   pricePerSeat: number = 150;
+  isAdmin: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -48,11 +50,21 @@ export class SeatSelectionComponent implements OnInit {
 
   generateSeats() {
     const rows = ['A', 'B', 'C', 'D', 'E'];
+    const seatRowMap: { [key: string]: string[] } = {};
+
     for (let row of rows) {
+      seatRowMap[row] = [];
       for (let i = 1; i <= 10; i++) {
-        this.seats.push(`${row}${i}`);
+        const seat = `${row}${i}`;
+        this.seats.push(seat);
+        seatRowMap[row].push(seat);
       }
     }
+
+    this.seatRows = rows.map(row => ({
+      label: row,
+      seats: seatRowMap[row]
+    }));
   }
 
   toggleSeat(seat: string) {
